@@ -1,3 +1,4 @@
+//Comparison operators
 function logResultForComparisonOperators(val1, val2) {
     if (val1 == val2) {
         console.log('== option worked');
@@ -18,6 +19,7 @@ logResultForComparisonOperators(10, 33);
 logResultForComparisonOperators(NaN, 0);
 logResultForComparisonOperators(undefined, 0);
 
+//Logical operators
 function logResultForLogicalOperators(val1, val2) {
     if (val1 && val2) {
         console.log('&& option worked');
