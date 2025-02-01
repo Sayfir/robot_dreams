@@ -18,7 +18,6 @@ logResultForComparisonOperators(NaN, 1);
 logResultForComparisonOperators(undefined, '4');
 
 //Logical operators
-
 function logResultsForLogicalOperators(val1, val2, val3, val4) {
     console.log(val1 > val2 && val3 < val4);
     console.log(val1 > val2 || val3 < val4);
