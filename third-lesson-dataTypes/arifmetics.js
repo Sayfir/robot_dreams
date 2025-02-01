@@ -22,6 +22,7 @@ function calculateResults(val1, val2, operator) {
 }
 
 calculateResults(2, '2', '+');
+calculateResults('2', '2', '+');
 calculateResults(10, 20, '-');
 calculateResults(true, '1', '*');
 calculateResults(true, false, '+');
