@@ -1,0 +1,26 @@
+{
+    "name": "robotdreams",
+    "version": "1.0.0",
+    "description": "This project is designed to hold playwright/typescript automation course",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "build": "npm run lint && <build script>"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Sayfir/robot_dreams.git"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.19.0",
+        "eslint": "^9.19.0",
+        "eslint-plugin-unicorn": "^56.0.1",
+        "globals": "^15.14.0"
+    },
+    "author": "Andrii Prokofiev",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Sayfir/robot_dreams/issues"
+    },
+    "homepage": "https://github.com/Sayfir/robot_dreams#readme"
+}

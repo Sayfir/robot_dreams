@@ -1,0 +1,3 @@
+-   Configured Git
+-   Created my first repository with commits
+-   Created my first Pull request

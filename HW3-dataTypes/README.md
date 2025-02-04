@@ -1,0 +1,5 @@
+-   Created JS project
+-   Completed task with arithmetical operators
+-   Completed task with logical operators
+-   Completed task with if/else statements
+-   Completed task with Switch/case
