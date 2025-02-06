@@ -1,3 +1,0 @@
--   Added loop.js file with for/while loops
--   Added arrays.js file with different array functions
--   Added objects.js file with complex object and functions
