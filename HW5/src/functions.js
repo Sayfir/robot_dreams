@@ -1,3 +1,7 @@
+function addTwoIndexes(arr) {
+    return arr[1] + arr[2];
+}
+
 //Using for loop
 function sumArrays(arr) {
     let sum = arr[0];
@@ -15,6 +19,8 @@ function sumArrayReduce(arr) {
 const numbers = [10, 20, 30, 40, 50];
 const strings = ['Hello', ' ', 'World', '!'];
 
+console.log(addTwoIndexes(numbers));
+console.log(addTwoIndexes(strings));
 console.log(sumArrays(numbers));
 console.log(sumArrays(strings));
 console.log(sumArrayReduce(numbers));
