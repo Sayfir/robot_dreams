@@ -1,1 +1,4 @@
-
+-   Created JS project
+-   Added promises.js file with completed task
+-   Added async-await.js file with completed task
+-   Added try-catch.js file
