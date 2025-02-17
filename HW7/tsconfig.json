@@ -1,5 +1,5 @@
 {
-    "exclude": ["eslint.config.mjs", "./build/**/*", "./node_modules/**/*"],
+    "exclude": ["eslint.config.js", "./build/**/*", "./node_modules/**/*"],
     "compilerOptions": {
         "baseUrl": "./",
         "target": "ES6" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,

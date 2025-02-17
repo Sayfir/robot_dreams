@@ -1,5 +1,6 @@
 // Using for loop
-function sumArrays(arr: (number | string)[]): number | string {
+function sumArrays(arr: number[] | string[]): number | string | null {
+    if (arr.length === 0) return null;
     if (typeof arr[0] === 'number') {
         let sum = 0;
         for (const num of arr as number[]) {
@@ -15,8 +16,9 @@ function sumArrays(arr: (number | string)[]): number | string {
     }
 }
 
-// Using reduce
-function sumArrayReduce(arr: (number | string)[]): number | string {
+//Using reduce
+function sumArrayReduce(arr: number[] | string[]): number | string | null {
+    if (arr.length === 0) return null;
     if (typeof arr[0] === 'number') {
         return (arr as number[]).reduce((acc, curr) => acc + curr, 0);
     } else {
@@ -24,9 +26,13 @@ function sumArrayReduce(arr: (number | string)[]): number | string {
     }
 }
 
-const numbers: number[] = [10, 20, 30, 40, 50];
-const strings: string[] = ['Hello', ' ', 'World', '!'];
+const emptyNum: number[] = [];
+const emptyStr: string[] = [];
+const numbers = [10, 20, 30, 40, 50];
+const strings = ['Hello', ' ', 'World', '!'];
 
+console.log(sumArrays(emptyNum));
+console.log(sumArrays(emptyStr));
 console.log(sumArrays(numbers));
 console.log(sumArrays(strings));
 console.log(sumArrayReduce(numbers));
