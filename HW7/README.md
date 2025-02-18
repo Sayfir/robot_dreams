@@ -1,0 +1,3 @@
+- Created project structure using typescript
+- Transformed functions.js to functions.ts
+- Transformed arrow-functions.js to arrow-functions.ts
