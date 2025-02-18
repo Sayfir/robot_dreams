@@ -30,6 +30,9 @@ export interface Company {
 
 export async function getJson(): Promise<Users[]> {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/');
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
     const json = (await response.json()) as Users[];
     return json;
 }
