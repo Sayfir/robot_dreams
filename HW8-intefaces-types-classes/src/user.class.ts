@@ -1,4 +1,4 @@
-import { getJson, Users, Address } from './user.interface';
+import { getJson, Users } from './user.interface';
 
 class UserSummary {
     private _name: string;
