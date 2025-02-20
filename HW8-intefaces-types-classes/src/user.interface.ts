@@ -27,18 +27,3 @@ export interface Company {
     catchPhrase: string;
     bs: string;
 }
-
-export async function getJson(): Promise<Users[]> {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users/');
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    const json = (await response.json()) as Users[];
-    return json;
-}
-
-(async () => {
-    const data = await getJson();
-    console.log(data[2].address.street);
-    console.log(data[2].company.catchPhrase);
-})();

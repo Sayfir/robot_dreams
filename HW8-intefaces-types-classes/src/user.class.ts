@@ -1,6 +1,6 @@
-import { getJson, Users } from './user.interface';
+import { Users } from './user.interface';
 
-class UserSummary {
+export class UserSummary {
     private _name: string;
 
     public get name(): string {
@@ -23,15 +23,3 @@ class UserSummary {
         this.companyName = user.company.name;
     }
 }
-
-async function formatUserSummary(userIndex: number): Promise<UserSummary> {
-    const data = await getJson();
-    const user = data[userIndex];
-    const userSummary = new UserSummary(user);
-    return userSummary;
-}
-
-(async () => {
-    const userSummary = await formatUserSummary(2);
-    console.log(userSummary);
-})();
