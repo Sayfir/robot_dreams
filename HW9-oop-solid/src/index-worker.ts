@@ -1,6 +1,6 @@
 import { Engineer } from './engineer';
 import { Manager } from './manager';
-import { SoftwareEngineer } from './softwareEngineer';
+import { SoftwareEngineer } from './software-engineer';
 import { iEmployee } from './iemployee';
 
 function printWorkerDetails(worker: iEmployee): void {

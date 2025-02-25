@@ -1,41 +1,24 @@
-import { iEmployee } from './iemployee';
-import { iSalary } from './isalary';
+import { Worker } from './worker';
 
-export class Manager implements iEmployee, iSalary {
-    isEmployed: boolean;
-    isBonusEligible: boolean;
-    private salary: number;
-    private name: string;
+export class Manager extends Worker {
+    private static readonly BONUS_MODIFIER = 1.2;
 
-    constructor(isEmployed: boolean, isBonusEligible: boolean, name: string, salary: number) {
-        this.isEmployed = isEmployed;
-        this.isBonusEligible = isBonusEligible;
-        this.name = name;
-        this.salary = salary;
+    public constructor(isEmployed: boolean, isBonusEligible: boolean, name: string, baseSalary: number) {
+        super(isEmployed, isBonusEligible, name, baseSalary);
     }
 
-    getSalary(): number {
+    public getBonus(): number {
+        return Manager.BONUS_MODIFIER;
+    }
+
+    public performDuties(): string {
         if (!this.isEmployed) {
-            throw new Error(`${this.name} is not employed and cannot receive a salary.`);
+            return `${this.getName()} is not employed and has no duties.`;
         }
-        return this.calculateSalary();
+        return `${this.getName()} is managing the team and overseeing projects.`;
     }
 
-    getDescription(): string {
-        if (!this.isEmployed) {
-            return `Manager: ${this.name} is currently not employed.`;
-        }
-        return `Manager: ${this.name}, Salary: $${this.getSalary()}`;
-    }
-
-    performDuties(): string {
-        if (!this.isEmployed) {
-            return `${this.name} is not employed and has no duties.`;
-        }
-        return `${this.name} is overseeing team projects and making strategic decisions.`;
-    }
-
-    calculateSalary(): number {
-        return this.isBonusEligible ? this.salary * 1.1 : this.salary;
+    protected calculateSalary(): number {
+        return this.isBonusEligible ? this.baseSalary * this.getBonus() : this.baseSalary;
     }
 }
