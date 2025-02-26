@@ -1,9 +1,10 @@
-import { Worker } from './worker';
+import { Employee } from './employee';
+import { EmployeeOptions } from './employee-options';
 
-export class Manager extends Worker {
+export class Manager extends Employee {
     private static readonly BONUS_MODIFIER = 1.2;
 
-    public constructor(isEmployed: boolean, isBonusEligible: boolean, name: string, baseSalary: number) {
+    public constructor({ isEmployed, isBonusEligible, name, baseSalary }: EmployeeOptions) {
         super(isEmployed, isBonusEligible, name, baseSalary);
     }
 

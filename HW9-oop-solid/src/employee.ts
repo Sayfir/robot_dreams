@@ -1,6 +1,4 @@
-import { iEmployee } from './iemployee';
-
-export abstract class Worker implements iEmployee {
+export abstract class Employee {
     public isEmployed: boolean;
     public isBonusEligible: boolean;
     public baseSalary: number;

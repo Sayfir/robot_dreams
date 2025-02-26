@@ -1,10 +1,11 @@
 import { Engineer } from './engineer';
+import { EmployeeOptions } from './employee-options';
 
 export class SoftwareEngineer extends Engineer {
     private programmingLanguage: string;
 
-    public constructor(isEmployed: boolean, isBonusEligible: boolean, name: string, baseSalary: number, programmingLanguage: string) {
-        super(isEmployed, isBonusEligible, name, baseSalary);
+    public constructor(options: EmployeeOptions, programmingLanguage: string) {
+        super(options);
         this.programmingLanguage = programmingLanguage;
     }
 
