@@ -1,11 +1,10 @@
 import { Engineer } from './engineer';
-import { EmployeeOptions } from './employee-options';
 
 export class SoftwareEngineer extends Engineer {
     private programmingLanguage: string;
 
-    public constructor(options: EmployeeOptions, programmingLanguage: string) {
-        super(options);
+    public constructor(isEmployed: boolean, isBonusEligible: boolean, name: string, baseSalary: number, programmingLanguage: string) {
+        super(isEmployed, isBonusEligible, name, baseSalary);
         this.programmingLanguage = programmingLanguage;
     }
 
@@ -15,8 +14,8 @@ export class SoftwareEngineer extends Engineer {
 
     public performDuties(): string {
         if (!this.isEmployed) {
-            return `${this.getName()} is not employed and has no duties.`;
+            return `${this.name} is not employed and has no duties.`;
         }
-        return `${this.getName()} is coding in ${this.programmingLanguage} and developing applications.`;
+        return `${this.name} is coding in ${this.programmingLanguage} and developing applications.`;
     }
 }

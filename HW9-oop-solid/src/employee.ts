@@ -1,7 +1,7 @@
 export abstract class Employee {
-    public isEmployed: boolean;
-    public isBonusEligible: boolean;
-    public baseSalary: number;
+    protected isEmployed: boolean;
+    protected isBonusEligible: boolean;
+    protected baseSalary: number;
     protected name: string;
 
     public constructor(isEmployed: boolean, isBonusEligible: boolean, name: string, baseSalary: number) {

@@ -1,10 +1,9 @@
 import { Employee } from './employee';
-import { EmployeeOptions } from './employee-options';
 
 export class Engineer extends Employee {
     private static readonly BONUS_MODIFIER = 1.1;
 
-    public constructor({ isEmployed, isBonusEligible, name, baseSalary }: EmployeeOptions) {
+    public constructor(isEmployed: boolean, isBonusEligible: boolean, name: string, baseSalary: number) {
         super(isEmployed, isBonusEligible, name, baseSalary);
     }
 
@@ -14,9 +13,9 @@ export class Engineer extends Employee {
 
     public performDuties(): string {
         if (!this.isEmployed) {
-            return `${this.getName()} is not employed and has no duties.`;
+            return `${this.name} is not employed and has no duties.`;
         }
-        return `${this.getName()} is designing and developing software.`;
+        return `${this.name} is designing and developing software.`;
     }
 
     protected calculateSalary(): number {
