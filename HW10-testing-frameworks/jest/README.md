@@ -1,0 +1,2 @@
+- Configured Jest project
+- Covered with unit tests Software-Engineer class
