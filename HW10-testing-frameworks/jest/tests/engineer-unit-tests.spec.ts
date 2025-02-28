@@ -27,7 +27,7 @@ describe('Manager Class', () => {
 
     test('should throw an error when getting salary if not employed', () => {
         engineer = new Engineer(false, false, 'George', 120000);
-        expectChai(engineer.getSalary()).to.throw('George is not employed and cannot receive a salary.');
+        expectChai(() => engineer.getSalary()).to.throw('George is not employed and cannot receive a salary.');
     });
 
     test('should return the correct description when not employed', () => {
