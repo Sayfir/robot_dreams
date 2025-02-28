@@ -2,11 +2,15 @@ import { Engineer } from './engineer';
 import { Manager } from './manager';
 import { SoftwareEngineer } from './software-engineer';
 import { Employee } from './employee';
+import { EmployeeDetails } from './employee-details';
 
-function printWorkerDetails(employee: Employee): void {
-    console.log(employee.getSalary());
-    console.log(employee.getDescription());
-    console.log(employee.performDuties());
+export function printWorkerDetails(employee: Employee): EmployeeDetails {
+    const details: EmployeeDetails = {
+        salary: employee.getSalary(),
+        description: employee.getDescription(),
+        duties: employee.performDuties()
+    };
+    return details;
 }
 
 const engineer = new Engineer(true, false, 'Tom', 80000);
