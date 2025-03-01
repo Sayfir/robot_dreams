@@ -1,0 +1,2 @@
+- Configured Mocha project
+- Covered with unit tests Engineer, Software-Engineer and Manager classes
