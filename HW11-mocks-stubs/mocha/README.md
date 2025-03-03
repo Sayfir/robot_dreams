@@ -1,2 +1,2 @@
-- Configured Mocha project
-- Covered with unit tests Engineer, Software-Engineer and Manager classes
+- Configured Mocha project with Sinon
+- Covered with unit tests and added mocks
