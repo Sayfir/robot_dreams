@@ -1,0 +1,2 @@
+- Configured Mocha project with Sinon
+- Covered with unit tests and added mocks
