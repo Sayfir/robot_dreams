@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "d85c96a1-0776-4e83-83ce-cc446fe0da56",
+		"name": "JokeApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1485170"
+	},
+	"item": [
+		{
+			"name": "GETJokeTypes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"}); \r",
+							"\r",
+							"const expectedCategories = [\"general\", \"knock-knock\", \"programming\", \"dad\"];\r",
+							"const actualCategories = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Response is an array\", function () {\r",
+							"    pm.expect(actualCategories).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains exactly 4 categories\", function () {\r",
+							"    pm.expect(actualCategories.length).to.eql(expectedCategories.length);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains only the expected categories\", function () {\r",
+							"    pm.expect(actualCategories).to.eql(expectedCategories);\r",
+							"});\r",
+							"\r",
+							"pm.collectionVariables.set(\"jokeTypes\", JSON.stringify(actualCategories));\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/types",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"types"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETRandomJoke",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Type is one of the expected categories\", function () {\r",
+							"    pm.expect(pm.collectionVariables.get(\"jokeTypes\")).to.include(response.type);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/jokes/random",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETJokesByType",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Response contains at least one joke\", function () {\r",
+							"    pm.expect(response.length).to.be.above(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array\", function () {\r",
+							"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Each joke has required fields\", function () {\r",
+							"    response.forEach(joke => {\r",
+							"        pm.expect(joke).to.have.property(\"type\");\r",
+							"        pm.expect(joke).to.have.property(\"setup\");\r",
+							"        pm.expect(joke).to.have.property(\"punchline\");\r",
+							"        pm.expect(joke).to.have.property(\"id\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Each joke has a non-empty setup and punchline\", function () {\r",
+							"    response.forEach(joke => {\r",
+							"        pm.expect(joke.setup).to.be.a(\"string\").and.not.be.empty;\r",
+							"        pm.expect(joke.punchline).to.be.a(\"string\").and.not.be.empty;\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/jokes/programming/ten",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"jokes",
+						"programming",
+						"ten"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:3005",
+			"type": "string"
+		},
+		{
+			"key": "jokeTypes",
+			"value": ""
+		}
+	]
+}
