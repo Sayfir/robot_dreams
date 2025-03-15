@@ -7,12 +7,20 @@
         "lint": "eslint src/",
         "lint:fix": "npm run lint -- --fix",
         "build": "npm run lint && tsc --build",
-        "test": "npx eslint . && mocha"
+        "test": "npx eslint . && mocha",
+        "test:log": "cross-env LOG_LEVEL=trace CI=true mocha"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "eslint-plugin-unicorn": "^56.0.1"
+        "@pact-foundation/pact": "^14.0.0",
+        "@types/sinon": "^17.0.4",
+        "@types/sinon-chai": "^4.0.0",
+        "cross-env": "^7.0.3",
+        "eslint-plugin-unicorn": "^56.0.1",
+        "sinon": "^19.0.2",
+        "sinon-chai": "^4.0.0",
+        "ts-mock-imports": "^1.3.16"
     },
     "devDependencies": {
         "@eslint/js": "^9.19.0",

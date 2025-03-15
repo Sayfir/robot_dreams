@@ -1,0 +1,111 @@
+{
+  "consumer": {
+    "name": "PetStore-consumer-v3"
+  },
+  "interactions": [
+    {
+      "description": "Place an order",
+      "providerStates": [
+        {
+          "name": "Order interaction"
+        }
+      ],
+      "request": {
+        "body": {
+          "complete": true,
+          "id": 1001,
+          "petId": 1001,
+          "quantity": 1,
+          "shipDate": "2025-03-15T10:00:15.679Z",
+          "status": "placed"
+        },
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/v2/store/order"
+      },
+      "response": {
+        "body": {
+          "complete": true,
+          "id": 1001,
+          "petId": 1001,
+          "quantity": 1,
+          "shipDate": "2025-03-15T10:00:15.679Z",
+          "status": "placed"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "content-type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "Get an order",
+      "request": {
+        "method": "GET",
+        "path": "/v2/store/order/1001"
+      },
+      "response": {
+        "body": {
+          "complete": true,
+          "id": 1001,
+          "petId": 1001,
+          "quantity": 1,
+          "shipDate": "2025-03-15T10:00:15.679Z",
+          "status": "placed"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "content-type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "14.0.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.22",
+      "models": "1.2.3"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "PetStore-provider-v3"
+  }
+}
