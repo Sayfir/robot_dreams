@@ -1,0 +1,2 @@
+- Created Postman collection
+- Covered Upload cats image, add image to favourites, vote for image and delete all created artifacts
