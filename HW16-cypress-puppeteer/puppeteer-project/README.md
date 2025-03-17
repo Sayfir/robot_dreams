@@ -1,0 +1,2 @@
+- Configured Puppeteer project
+- Added two test cases
