@@ -1,4 +1,4 @@
-Buy Apple iPad using Rozetka marketplace
+1) Buy Apple iPad using Rozetka marketplace
 - Open https://rozetka.com.ua/
 - Click on the Search field => //input[@name='search']
 - Type iPad
@@ -8,3 +8,16 @@ Buy Apple iPad using Rozetka marketplace
 - On the pop-up click "Оформити замовлення" button => //a[@href='https://rozetka.com.ua/ua/checkout/']
 - Type phone number in input field => input[data-qaid='phone']
 - Click on "Замовлення підтверджую" Submit button => input[type='submit']
+
+2) Add products to comparison
+- Open https://rozetka.com.ua/
+- Click on the Search field => //input[@name='search']
+- Type iPad
+- Click on a button "Знайти" => //button[text() = " Знайти "]
+- Choose tile with index 5 => .goods-tile__picture:nth-of-type(5)
+- Click add to comparison button => button.compare-button
+- Choose tile with index 6 => .goods-tile__picture:nth-of-type(6)
+- Click add to comparison button => button.compare-button
+- Open Comparison screen by clicking on Compare icon => a[href="https://rozetka.com.ua/ua/comparison/"]
+- Verify URL includes /comparison
+- Verify Compare screen includes 2 products
