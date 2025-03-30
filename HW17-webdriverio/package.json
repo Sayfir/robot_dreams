@@ -10,7 +10,7 @@
         "test": "npx eslint . && mocha",
         "test:log": "cross-env LOG_LEVEL=trace CI=true mocha",
         "cy:open": "cypress open",
-        "wdio": "lint && wdio run ./wdio.conf.js"
+        "wdio": "wdio run ./wdio.conf.js"
     },
     "author": "",
     "license": "ISC",
@@ -34,9 +34,11 @@
         "@typescript-eslint/eslint-plugin": "^8.21.0",
         "@typescript-eslint/parser": "^8.21.0",
         "@wdio/cli": "^9.12.1",
+        "@wdio/globals": "^9.12.1",
         "@wdio/local-runner": "^9.12.1",
         "@wdio/mocha-framework": "^9.12.1",
         "@wdio/spec-reporter": "^9.11.0",
+        "@wdio/types": "^9.10.1",
         "chai": "^5.2.0",
         "cypress": "^14.2.0",
         "eslint": "^9.19.0",
