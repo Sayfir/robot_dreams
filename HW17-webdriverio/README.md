@@ -1,0 +1,4 @@
+- Created Project structure for webdriverio
+- Created POM
+- Added base-page, main-page, product-page, cart-page and checkout-page
+- Integrated all pages to tests
