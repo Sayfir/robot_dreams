@@ -1,5 +1,9 @@
 import { expect } from 'chai';
-import { $, $$, browser } from '@wdio/globals';
+import { browser } from '@wdio/globals';
+import { BasePage } from 'src/pages/base-page';
+import { MainPage } from '../../src/pages/main-page';
+import { ProductPage } from 'src/pages/product-page';
+import { CartPage } from '../../src/pages/cart-page';
 
 const itemsToBuy = [
     { name: 'iPad', index: 5 },
@@ -7,43 +11,41 @@ const itemsToBuy = [
     { name: 'iPhone', index: 2 }
 ];
 
+let basePage: BasePage;
+let mainPage: MainPage;
+let productPage: ProductPage;
+let cartPage: CartPage;
+
 describe('Add items to cart', () => {
     beforeEach(async () => {
         await browser.url('https://rozetka.com.ua/');
+        basePage = new BasePage();
+        mainPage = new MainPage();
+        productPage = new ProductPage();
+        cartPage = new CartPage();
     });
 
     itemsToBuy.forEach(({ name, index }) => {
         it(`Searches and adds to cart ${name}`, async () => {
-            const searchInput = await $("input[name='search']");
-            await searchInput.setValue(name);
-            const searchButton = await $('button.button_color_green');
-            await searchButton.click();
+            basePage.searchProduct(name);
+            await expect(browser).to.contain(`search_text=${name}`);
 
-            await expect(browser).contain(`search_text=${name}`);
+            mainPage.selectProduct(index);
+            await expect(productPage.getTileText(name)).contain(name);
 
-            const productTiles = await $$('.goods-tile');
-            await productTiles[index].click();
+            productPage.clickBuyButton();
 
-            const productTitle = await $('h1');
-            await expect(productTitle).contain(name);
-
-            const buyButton = await $('button.buy-button--tile');
-            await buyButton.click();
-
-            const checkoutLink = await $("a[href='https://rozetka.com.ua/ua/checkout/']");
-            await checkoutLink.click();
-
-            await expect(browser).contain('checkout');
+            cartPage.gotoCheckout();
+            await expect(browser).to.contain('checkout');
         });
     });
 
     it('Verifies correct products are in the cart', async () => {
-        const cartItems = await $$('.simplified-view');
-        expect(cartItems.length).to.equal(itemsToBuy.length);
+        cartPage.openCartPage();
+        expect(cartPage.cartItems.length).to.equal(itemsToBuy.length - 1);
 
         for (const { name } of itemsToBuy) {
-            const productTitle = await $('.checkout-product__title');
-            await expect(productTitle).contain(name);
+            await expect(cartPage.cartItems).contain(name);
         }
     });
 });
