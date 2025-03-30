@@ -1,4 +1,3 @@
-- Configured Cypress project
-- Added some global configs
-- Added script to run cypress
-- Added two test case files (Adding items to cart and Adding items to comparison)
+- Configured Playwright project
+- Created POM objects
+- Implemented pages in tests
