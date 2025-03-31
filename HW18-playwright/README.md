@@ -1,0 +1,3 @@
+- Configured Playwright project
+- Created POM objects
+- Implemented pages in tests
